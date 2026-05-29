@@ -52,7 +52,7 @@ export default function ImpactDashboard() {
       </div>
 
       {/* Main Core Indicators */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
         
         {/* Indicator 1 */}
         <div className="bg-card-bg border border-border-custom rounded-2xl p-5 shadow-xs relative overflow-hidden">
@@ -95,7 +95,7 @@ export default function ImpactDashboard() {
         </div>
 
         {/* Indicator 5 */}
-        <div className="bg-card-bg border border-border-custom rounded-2xl p-5 shadow-xs relative overflow-hidden">
+        <div className="bg-card-bg border border-border-custom rounded-2xl p-5 shadow-xs relative overflow-hidden col-span-2 sm:col-span-1">
           <div className="absolute top-0 right-0 h-16 w-16 bg-neutral-500/5 rounded-bl-full flex items-center justify-end pr-3.5 pt-3 text-foreground">
             <Users className="h-5 w-5" />
           </div>

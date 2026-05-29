@@ -16,9 +16,8 @@ import {
   UtensilsCrossed
 } from "lucide-react";
 
-export default function ConsumerHome({ onSelectPack }) {
-  const { packs, reservations } = useApp();
-  const [activeTab, setActiveTab] = useState("available"); // "available" or "reservations"
+export default function ConsumerHome({ onSelectPack, viewMode = "available" }) {
+  const { packs, reservations, setCurrentRole } = useApp();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [sortBy, setSortBy] = useState("closest"); // "closest" or "price"
@@ -70,50 +69,21 @@ export default function ConsumerHome({ onSelectPack }) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 flex-1">
-      {/* Header Tabs */}
+      {/* Header */}
       <div className="flex items-center justify-between border-b border-border-custom pb-5 mb-8">
         <div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
-            {activeTab === "available" ? "Comida disponible cerca" : "Mis Reservas"}
+            {viewMode === "available" ? "Comida disponible cerca" : "Mis Reservas"}
           </h1>
           <p className="text-sm text-muted mt-1">
-            {activeTab === "available" 
+            {viewMode === "available" 
               ? "Descubrí packs con comida deliciosa que comercios locales han preparado para hoy." 
               : "Mostrá el código correspondiente al retirar tu pack en el comercio."}
           </p>
         </div>
-
-        {/* Tab switchers */}
-        <div className="flex rounded-xl bg-neutral-100 dark:bg-neutral-900 p-1">
-          <button
-            onClick={() => setActiveTab("available")}
-            className={`rounded-lg px-4 py-2 text-xs font-bold transition-all ${
-              activeTab === "available"
-                ? "bg-white dark:bg-neutral-800 text-primary shadow-sm"
-                : "text-muted hover:text-foreground"
-            }`}
-          >
-            Packs
-          </button>
-          <button
-            onClick={() => setActiveTab("reservations")}
-            className={`relative rounded-lg px-4 py-2 text-xs font-bold transition-all ${
-              activeTab === "reservations"
-                ? "bg-white dark:bg-neutral-800 text-primary shadow-sm"
-                : "text-muted hover:text-foreground"
-            }`}
-          >
-            Reservas
-            {reservations.length > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white shadow-sm">
-                {reservations.length}
-              </span>
-            )}
-          </button>
-        </div>
       </div>
 
-      {activeTab === "available" ? (
+      {viewMode === "available" ? (
         <>
           {/* Filters Bar */}
           <div className="space-y-6 mb-8">
@@ -146,7 +116,7 @@ export default function ConsumerHome({ onSelectPack }) {
             </div>
 
             {/* Category pills */}
-            <div className="flex overflow-x-auto pb-2 scrollbar-none gap-2 -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button
                   key={category}
@@ -165,7 +135,7 @@ export default function ConsumerHome({ onSelectPack }) {
 
           {/* Packs Grid */}
           {sortedPacks.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {sortedPacks.map((pack) => (
                 <PackCard 
                   key={pack.id} 
@@ -273,7 +243,7 @@ export default function ConsumerHome({ onSelectPack }) {
                 Explorá los packs disponibles de los comercios gastronómicos locales y reservá el tuyo hoy.
               </p>
               <button
-                onClick={() => setActiveTab("available")}
+                onClick={() => setCurrentRole("consumer")}
                 className="rounded-xl bg-primary px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-primary-hover transition-all"
               >
                 Buscar comida cercana

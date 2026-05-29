@@ -10,7 +10,8 @@ import {
   User, 
   BarChart3, 
   ShoppingBag,
-  RefreshCw
+  RefreshCw,
+  Ticket
 } from "lucide-react";
 
 export default function Navbar() {
@@ -27,6 +28,7 @@ export default function Navbar() {
   const navLinks = [
     { role: "landing", label: "Inicio", icon: Leaf },
     { role: "consumer", label: "Buscar Comida", icon: ShoppingBag },
+    { role: "reservations", label: "Mis Reservas", icon: Ticket },
     { role: "merchant", label: "Soy Comercio", icon: Store },
     { role: "impact", label: "Impacto", icon: BarChart3 }
   ];
@@ -62,7 +64,7 @@ export default function Navbar() {
                 >
                   <Icon className="mr-2 h-4 w-4" />
                   {link.label}
-                  {link.role === "consumer" && activeReservationsCount > 0 && (
+                  {link.role === "reservations" && activeReservationsCount > 0 && (
                     <span className="ml-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white animate-pulse">
                       {activeReservationsCount}
                     </span>
@@ -112,7 +114,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center space-x-2">
-            {currentRole === "consumer" && activeReservationsCount > 0 && (
+            {(currentRole === "consumer" || currentRole === "reservations") && activeReservationsCount > 0 && (
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white animate-pulse mr-1">
                 {activeReservationsCount}
               </span>
@@ -152,7 +154,7 @@ export default function Navbar() {
               >
                 <Icon className="mr-3 h-5 w-5 text-muted" />
                 {link.label}
-                {link.role === "consumer" && activeReservationsCount > 0 && (
+                {link.role === "reservations" && activeReservationsCount > 0 && (
                   <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white">
                     {activeReservationsCount}
                   </span>

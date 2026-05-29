@@ -22,9 +22,9 @@ export default function ReservationModal({ reservation, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-0 sm:p-6 overflow-y-auto">
       {/* Container */}
-      <div className="relative w-full max-w-md bg-card-bg rounded-3xl overflow-hidden shadow-2xl border border-border-custom flex flex-col my-auto animate-float">
+      <div className="relative w-full max-w-md bg-card-bg rounded-t-3xl sm:rounded-3xl shadow-2xl border-t sm:border border-border-custom flex flex-col max-h-[92vh] sm:max-h-[90vh] overflow-y-auto animate-float">
         
         {/* Confetti-like success top panel */}
         <div className="bg-primary p-6 text-white text-center flex flex-col items-center">

@@ -32,7 +32,9 @@ function AppContent() {
       case "landing":
         return <LandingPage />;
       case "consumer":
-        return <ConsumerHome onSelectPack={handleSelectPack} />;
+        return <ConsumerHome onSelectPack={handleSelectPack} viewMode="available" />;
+      case "reservations":
+        return <ConsumerHome onSelectPack={handleSelectPack} viewMode="reservations" />;
       case "merchant":
         return <MerchantDashboard />;
       case "impact":

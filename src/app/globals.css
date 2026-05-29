@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Force class-based dark mode variant so utility dark: classes do not trigger automatically on system dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  
+  --primary: #16a34a; /* Green-600 */
+  --primary-hover: #15803d; /* Green-700 */
+  --primary-light: #f0fdf4; /* Green-50 */
+  
+  --secondary: #ea580c; /* Orange-600 */
+  --secondary-hover: #c2410c; /* Orange-700 */
+  --secondary-light: #fff7ed; /* Orange-50 */
+  
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-light: var(--secondary-light);
+  --color-card-bg: var(--card-bg);
+  --color-border-custom: var(--border);
+  
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s infinite;
+}

@@ -2,13 +2,13 @@
 
 import React from "react";
 import { useApp } from "../context/AppContext";
-import { 
-  ArrowRight, 
-  ShoppingBag, 
-  Store, 
-  Leaf, 
-  CheckCircle2, 
-  DollarSign, 
+import {
+  ArrowRight,
+  ShoppingBag,
+  Store,
+  Leaf,
+  CheckCircle2,
+  DollarSign,
   Heart,
   TrendingDown,
   ChevronRight,
@@ -31,22 +31,22 @@ export default function LandingPage() {
                 <Leaf className="mr-1.5 h-3.5 w-3.5" />
                 Impacto social y ambiental
               </span>
-              
+
               <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
-                Salva comida deliciosa, <br />
+                Salva comida, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                   ahorra todos los días.
                 </span>
               </h1>
-              
+
               <p className="text-lg sm:text-xl font-bold text-secondary max-w-2xl mx-auto lg:mx-0">
                 “Comida que se salva, ahorro que se comparte.”
               </p>
-              
+
               <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto lg:mx-0">
                 Conectamos a tus comercios favoritos con personas que quieren disfrutar de comida de calidad a una fracción de su precio original. Ayudá al planeta reduciendo el desperdicio de comida.
               </p>
-              
+
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <button
@@ -87,12 +87,12 @@ export default function LandingPage() {
                       Excedente salvado
                     </span>
                   </div>
-                  
+
                   <div className="my-6 space-y-2">
                     <div className="h-40 w-full rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 relative">
-                      <img 
-                        src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" 
-                        alt="Facturas mock" 
+                      <img
+                        src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                        alt="Facturas mock"
                         className="object-cover w-full h-full"
                       />
                       <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-xs rounded-xl p-2.5 text-white flex items-center justify-between">
@@ -106,7 +106,7 @@ export default function LandingPage() {
 
                   <div className="flex items-center justify-between text-xs border-t border-border-custom pt-3">
                     <span className="text-muted">⚡ Quedan 3 disponibles</span>
-                    <button 
+                    <button
                       onClick={() => setCurrentRole("consumer")}
                       className="text-primary font-bold flex items-center hover:underline"
                     >

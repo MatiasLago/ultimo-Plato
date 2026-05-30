@@ -33,6 +33,15 @@ export default function Navbar() {
     { role: "impact", label: "Impacto", icon: BarChart3 }
   ];
 
+  const isMerchant = currentRole === "merchant";
+  const filteredNavLinks = navLinks.filter(link => {
+    if (isMerchant) {
+      return link.role !== "consumer" && link.role !== "reservations";
+    } else {
+      return link.role !== "merchant";
+    }
+  });
+
   return (
     <nav className="sticky top-0 z-50 border-b border-border-custom bg-background/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -49,7 +58,7 @@ export default function Navbar() {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
-            {navLinks.map((link) => {
+            {filteredNavLinks.map((link) => {
               const Icon = link.icon;
               const isActive = currentRole === link.role;
               return (
@@ -74,64 +83,65 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Role Toggle Switch & Dev Tool */}
-          <div className="hidden md:flex items-center space-x-3 border-l border-border-custom pl-4 lg:pl-6">
-            {/* Quick Toggle pill */}
+          {/* Right section (Desktop and Mobile) */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            
+            {/* Universal Quick Toggle Pill */}
             <div className="inline-flex rounded-xl bg-neutral-100 dark:bg-neutral-900 p-1">
               <button
                 onClick={() => handleNav("consumer")}
-                className={`flex items-center rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                  currentRole === "consumer"
-                    ? "bg-white dark:bg-neutral-800 text-primary shadow-sm"
+                className={`flex items-center rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-bold transition-all ${
+                  currentRole === "consumer" || currentRole === "reservations"
+                    ? "bg-white dark:bg-neutral-800 text-primary shadow-xs"
                     : "text-muted hover:text-foreground"
                 }`}
               >
-                <User className="mr-1.5 h-3.5 w-3.5" />
-                Consumidor
+                <User className="h-3.5 w-3.5 sm:mr-1.5" />
+                <span className="hidden sm:inline">Consumidor</span>
               </button>
               <button
                 onClick={() => handleNav("merchant")}
-                className={`flex items-center rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
+                className={`flex items-center rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-bold transition-all ${
                   currentRole === "merchant"
-                    ? "bg-white dark:bg-neutral-800 text-secondary shadow-sm"
+                    ? "bg-white dark:bg-neutral-800 text-secondary shadow-xs"
                     : "text-muted hover:text-foreground"
                 }`}
               >
-                <Store className="mr-1.5 h-3.5 w-3.5" />
-                Comercio
+                <Store className="h-3.5 w-3.5 sm:mr-1.5" />
+                <span className="hidden sm:inline">Comercio</span>
               </button>
             </div>
 
-            {/* Reset Stats */}
+            {/* Desktop Reset Stats */}
             <button
               onClick={resetAllData}
               title="Reiniciar datos simulados"
-              className="flex h-9 w-9 items-center justify-center rounded-xl border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-900 text-muted hover:text-foreground transition-all"
+              className="hidden md:flex h-9 w-9 items-center justify-center rounded-xl border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-900 text-muted hover:text-foreground transition-all"
             >
               <RefreshCw className="h-4 w-4" />
             </button>
-          </div>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden items-center space-x-2">
-            {(currentRole === "consumer" || currentRole === "reservations") && activeReservationsCount > 0 && (
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white animate-pulse mr-1">
-                {activeReservationsCount}
-              </span>
-            )}
-            <button
-              onClick={resetAllData}
-              title="Reiniciar datos"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-border-custom text-muted"
-            >
-              <RefreshCw className="h-3.5 w-3.5" />
-            </button>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-xl p-2 text-muted hover:bg-neutral-100 dark:hover:bg-neutral-900 hover:text-foreground transition-all"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* Mobile menu button and indicator */}
+            <div className="flex md:hidden items-center space-x-1">
+              {(currentRole === "consumer" || currentRole === "reservations") && activeReservationsCount > 0 && (
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-white animate-pulse mr-1">
+                  {activeReservationsCount}
+                </span>
+              )}
+              <button
+                onClick={resetAllData}
+                title="Reiniciar datos"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border-custom text-muted"
+              >
+                <RefreshCw className="h-3.5 w-3.5" />
+              </button>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="inline-flex items-center justify-center rounded-xl p-2 text-muted hover:bg-neutral-100 dark:hover:bg-neutral-900 hover:text-foreground transition-all"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -139,7 +149,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden border-t border-border-custom bg-background px-4 pt-2 pb-4 space-y-2">
-          {navLinks.map((link) => {
+          {filteredNavLinks.map((link) => {
             const Icon = link.icon;
             const isActive = currentRole === link.role;
             return (

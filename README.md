@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Último Plato 🍽️🌱
+> **"Comida que se salva, ahorro que se comparte."**
 
-## Getting Started
+**Último Plato** es una aplicación web responsiva y sustentable diseñada para conectar comercios gastronómicos locales que tienen excedentes de comida del día con personas que buscan acceder a comida de excelente calidad a una fracción de su costo original. 
 
-First, run the development server:
+El propósito principal de este MVP (Producto Mínimo Viable) es demostrar el flujo comercial y ecológico en tiempo real durante una hackatón, mostrando el impacto social y ambiental inmediato al rescatar alimentos.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Business Model Canvas
+A continuación se detalla el modelo de negocios planteado para la plataforma:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+![Business Model Canvas](public/canvas.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Desglose del Canvas de Negocio
 
-## Learn More
+1. **Segmentos de Clientes:**
+   - Consumidores conscientes del medio ambiente.
+   - Personas que buscan opciones de comida asequibles y de calidad.
+   - Comercios locales que buscan reducir sus pérdidas y el desperdicio.
+   - Establecimientos gastronómicos (restaurantes, panaderías, cafeterías, supermercados, verdulerías, hoteles, organizadores de eventos y productores).
 
-To learn more about Next.js, take a look at the following resources:
+2. **Propuesta de Valor:**
+   - Acceso a precios sumamente reducidos en excedentes de comida de calidad.
+   - Apoyo directo a los negocios gastronómicos de barrio.
+   - Reducción activa y medible del desperdicio de alimentos y del impacto de carbono.
+   - Oportunidad de probar nuevos platos y establecimientos locales a bajo costo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Canales:**
+   - Aplicación web y plataforma en línea responsive.
+   - Redes sociales y campañas de concientización digital.
+   - Publicidad geolocalizada.
+   - Alianzas estratégicas con comercios y redes de gastronomía.
+   - Marketing orgánico mediante recomendaciones de "boca a boca".
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Relaciones con Clientes:**
+   - Enfoque comunitario basado en la confianza, cooperación y sustentabilidad.
+   - Experiencia de usuario simplificada e interactiva (comprar con un par de clics).
+   - "Sorpresa sustentable": el comercio elige los productos específicos del excedente, manteniendo el misterio y la flexibilidad.
 
-## Deploy on Vercel
+5. **Flujos de Ingresos:**
+   - Comisión porcentual sobre cada venta de pack realizada a través de la plataforma.
+   - Suscripciones premium o alianzas corporativas de visibilidad ecológica para comercios asociados.
+   - Donaciones, patrocinios y subsidios gubernamentales orientados a proyectos verdes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Recursos Clave:**
+   - Infraestructura y plataforma tecnológica (servidores, API, base de datos).
+   - Base activa de comercios asociados y red de usuarios rescatistas.
+   - Sistema logístico de retiro en tienda.
+   - Equipo técnico de desarrolladores, diseñadores y soporte al cliente.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. **Actividades Clave:**
+   - Desarrollo, mantenimiento y actualización continua de la aplicación.
+   - Captación y soporte técnico/comercial para comercios gastronómicos asociados.
+   - Campañas de marketing y promoción del movimiento "cero desperdicio".
+   - Campañas educativas sobre el desperdicio alimenticio.
+
+8. **Socios Clave:**
+   - Locales gastronómicos (cafeterías, restaurantes, panaderías, rotiserías, verdulerías, etc.).
+   - Distribuidores y bancos de alimentos locales.
+   - Organizaciones ambientales y ONGs orientadas al reciclaje orgánico.
+   - Comunidades vecinales y colectivos locales.
+
+9. **Estructura de Costos:**
+   - Desarrollo, mantenimiento técnico y servidores de la plataforma.
+   - Presupuesto de marketing, publicidad y educación al consumidor.
+   - Salarios del equipo administrativo, de desarrollo y soporte.
+   - Costos administrativos, legales, seguros y licencias de operación.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+Este proyecto está desarrollado bajo un stack moderno y eficiente:
+- **Core**: [React 19](https://react.dev/) con [Next.js 16 (App Router)](https://nextjs.org/)
+- **Estilos**: [Tailwind CSS 4](https://tailwindcss.com/) (Diseño adaptativo, móvil-primero, y temas optimizados)
+- **Iconos**: [Lucide React](https://lucide.dev/) (Set de iconos vectoriales modernos y limpios)
+- **Persistencia**: `localStorage` (React Context) para simular una base de datos en tiempo real y permitir flujos cruzados interactivos al instante durante el Pitch.
+
+---
+
+##  Características Principales
+
+###  Selector de Rol Universal en Cabecera
+Ubicado de forma fija en el Navbar (tanto en computadoras como en celulares), permite alternar entre el rol de **Consumidor** y de **Comercio** con un solo toque. 
+- Al cambiar de rol, el menú de navegación se actualiza dinámicamente: bloquea las opciones de comercio al consumidor y viceversa para evitar flujos inconsistentes.
+
+###  Panel del Consumidor ("Buscar Comida")
+- **Filtros de Categorías Responsivos**: Píldoras de selección ("Todos", "Panadería", "Café", etc.) que se envuelven (`flex-wrap`) en móviles en vez de desbordarse, haciéndolos legibles y fáciles de seleccionar.
+- **Grilla de una Columna con Ancho Acotado (`max-w-[300px]`)**: En móviles, las tarjetas se apilan verticalmente centradas, limitando su ancho para que no se estiren de forma antiestética y los botones se mantengan a un tamaño ergonómico perfecto para el pulgar.
+- **Tarjeta de Producto Detallada (`PackCard`)**: Muestra la distancia calculada al lado del comercio (`Café Centro • 0.4 km`), el título, stock disponible y precio en una sola fila compacta, con el botón "Reservar" debajo de forma segura.
+
+###  Confirmación con Ticket Digital
+- Al reservar, la app actualiza el stock local en tiempo real y despliega un ticket digital de confirmación con un **código de retiro rápido** (Ej. `UP-5729`) y un código QR simulado para agilizar la entrega en tienda.
+
+###  Panel del Comercio ("Soy Comercio")
+- **Publicar Excedentes**: Formulario rápido para subir el pack sobrante del día con título, categoría, descripción, precio único de oferta, stock y horario de entrega.
+- **Simulador de Validación**: Permite ingresar el código digital del cliente (Ej. `UP-5729`) para corroborar la reserva y marcarla como "Entregada" de manera dinámica.
+
+###  Dashboard de Impacto Real
+Métricas de sostenibilidad actualizadas al instante con cada pack rescatado:
+- **Packs Rescatados**: Contador total de transacciones sustentables.
+- **Alimentos Salvados (kg)**: Estimación física de residuos orgánicos evitados (promedio de 750g por pack).
+- **Pesos Ahorrados**: Dinero total que el consumidor ahorró en comparación a la compra normal.
+- **Huella Ecológica (CO₂ y Agua)**: Visualización del impacto positivo (reducción de emisiones de gases de efecto invernadero y litros de agua potable conservados).

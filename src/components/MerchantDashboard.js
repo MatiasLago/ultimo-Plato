@@ -54,7 +54,7 @@ export default function MerchantDashboard() {
     "Panadería": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
     "Comida preparada": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
     "Café/Merienda": "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=600&q=80",
-    "Frutas y verduras": "https://images.unsplash.com/photo-1610397613050-3ee99347e8f8?auto=format&fit=crop&w=600&q=80",
+    "Frutas y verduras": "/fruits_and_vegetables.png",
     "Restaurante": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80",
     "Supermercado": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80"
   };

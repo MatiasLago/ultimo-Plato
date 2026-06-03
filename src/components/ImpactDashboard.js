@@ -60,8 +60,7 @@ export default function ImpactDashboard() {
             <Leaf className="h-5 w-5" />
           </div>
           <span className="text-xs font-bold text-muted uppercase block">Packs vendidos</span>
-          <span className="text-3xl font-black text-foreground block mt-2">{stats.packsSold}</span>
-          <span className="text-[10px] text-primary font-bold mt-1 block">⚡ Packs rescatados</span>
+          <span className="text-3xl font-black text-foreground block mt-2 pb-1">{stats.packsSold}</span>
         </div>
 
         {/* Indicator 2 */}
@@ -70,8 +69,7 @@ export default function ImpactDashboard() {
             <Globe className="h-5 w-5" />
           </div>
           <span className="text-xs font-bold text-muted uppercase block">Alimentos rescatados</span>
-          <span className="text-3xl font-black text-foreground block mt-2">{stats.foodRescuedKg} kg</span>
-          <span className="text-[10px] text-primary font-bold mt-1 block">🌱 Peso neto estimado</span>
+          <span className="text-3xl font-black text-foreground block mt-2 pb-1">{stats.foodRescuedKg} kg</span>
         </div>
 
         {/* Indicator 3 */}
@@ -80,8 +78,7 @@ export default function ImpactDashboard() {
             <DollarSign className="h-5 w-5" />
           </div>
           <span className="text-xs font-bold text-muted uppercase block">Ahorro generado</span>
-          <span className="text-3xl font-black text-foreground block mt-2">{formatPrice(stats.savingsGenerated)}</span>
-          <span className="text-[10px] text-secondary font-bold mt-1 block">💰 Dinero que se queda en el barrio</span>
+          <span className="text-3xl font-black text-foreground block mt-2 pb-1">{formatPrice(stats.savingsGenerated)}</span>
         </div>
 
         {/* Indicator 4 */}
@@ -90,8 +87,7 @@ export default function ImpactDashboard() {
             <Store className="h-5 w-5" />
           </div>
           <span className="text-xs font-bold text-muted uppercase block">Comercios adheridos</span>
-          <span className="text-3xl font-black text-foreground block mt-2">{stats.partnerShops}</span>
-          <span className="text-[10px] text-muted font-bold mt-1 block">🏪 Gastronómicos activos</span>
+          <span className="text-3xl font-black text-foreground block mt-2 pb-1">{stats.partnerShops}</span>
         </div>
 
         {/* Indicator 5 */}
@@ -100,8 +96,7 @@ export default function ImpactDashboard() {
             <Users className="h-5 w-5" />
           </div>
           <span className="text-xs font-bold text-muted uppercase block">Usuarios registrados</span>
-          <span className="text-3xl font-black text-foreground block mt-2">{stats.registeredUsers}</span>
-          <span className="text-[10px] text-muted font-bold mt-1 block">👥 Rescatadores registrados</span>
+          <span className="text-3xl font-black text-foreground block mt-2 pb-1">{stats.registeredUsers}</span>
         </div>
       </div>
 
@@ -170,7 +165,7 @@ export default function ImpactDashboard() {
           <div className="rounded-2xl bg-neutral-50 dark:bg-neutral-950/40 p-4 border border-border-custom flex items-start space-x-3 text-xs text-muted leading-relaxed">
             <Info className="h-4.5 w-4.5 text-primary shrink-0 mt-0.5" />
             <div>
-              <strong>Simulación en vivo para Hackatón:</strong> Los contadores de este dashboard se incrementan de manera automática cada vez que un usuario realiza una reserva desde la sección <strong className="text-foreground">"Buscar Comida"</strong> en esta misma pestaña. Podés reiniciar las estadísticas en cualquier momento con el botón de recarga en la barra superior.
+              <strong>Simulación en vivo para Hackatón:</strong> Los contadores de este dashboard se incrementan de manera automática cada vez que un usuario realiza una reserva desde la sección <strong className="text-foreground">&quot;Buscar Comida&quot;</strong> en esta misma pestaña. Podés reiniciar las estadísticas en cualquier momento con el botón de recarga en la barra superior.
             </div>
           </div>
         </div>

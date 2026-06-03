@@ -58,7 +58,7 @@ const initialPacks = [
     distance: "2.1 km",
     quantity: 5,
     address: "Av. Juan B. Justo 3100",
-    image: "https://images.unsplash.com/photo-1610397613050-3ee99347e8f8?auto=format&fit=crop&w=600&q=80",
+    image: "/fruits_and_vegetables.png",
     status: "Activo"
   },
   {
@@ -128,21 +128,21 @@ const initialPacks = [
     distance: "1.2 km",
     quantity: 1,
     address: "Calle Belgrano 345",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+    image: "/empanadas.png",
     status: "Activo"
   },
   {
     id: "p10",
-    shopName: "Restaurante La Esquina",
-    category: "Restaurante",
-    title: "Pack Dulce Tentación",
-    description: "Porciones de torta, flan casero o tiramisú que fueron elaborados en el día para la carta de postres.",
+    shopName: "Kiosko El Sol",
+    category: "Café/Merienda",
+    title: "Pack de Alfajores Artesanales",
+    description: "Exquisitos alfajores de chocolate y dulce de leche de elaboración local, ideales para regalarse una dulce tentación.",
     price: 3000,
-    pickupTime: "22:00 a 22:45",
+    pickupTime: "18:00 a 21:00",
     distance: "1.5 km",
     quantity: 2,
     address: "Esquina Rivadavia y Colón",
-    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
+    image: "/alfajores.png",
     status: "Activo"
   }
 ];
@@ -158,7 +158,7 @@ const initialStats = {
 export function AppProvider({ children }) {
   const [packs, setPacks] = useState(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("up_packs");
+      const saved = localStorage.getItem("up_packs_v2");
       if (saved) {
         const parsed = JSON.parse(saved);
         return parsed.map(p => p.price === undefined ? { ...p, price: p.discountPrice || p.originalPrice || 2500 } : p);
@@ -170,7 +170,7 @@ export function AppProvider({ children }) {
 
   const [reservations, setReservations] = useState(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("up_reservations");
+      const saved = localStorage.getItem("up_reservations_v2");
       if (saved) {
         const parsed = JSON.parse(saved);
         return parsed.map(r => r.price === undefined ? { ...r, price: r.discountPrice || 2500 } : r);
@@ -182,7 +182,7 @@ export function AppProvider({ children }) {
 
   const [stats, setStats] = useState(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("up_stats");
+      const saved = localStorage.getItem("up_stats_v2");
       return saved ? JSON.parse(saved) : initialStats;
     }
     return initialStats;
@@ -192,15 +192,15 @@ export function AppProvider({ children }) {
 
   // Save states to localStorage on change
   useEffect(() => {
-    localStorage.setItem("up_packs", JSON.stringify(packs));
+    localStorage.setItem("up_packs_v2", JSON.stringify(packs));
   }, [packs]);
 
   useEffect(() => {
-    localStorage.setItem("up_reservations", JSON.stringify(reservations));
+    localStorage.setItem("up_reservations_v2", JSON.stringify(reservations));
   }, [reservations]);
 
   useEffect(() => {
-    localStorage.setItem("up_stats", JSON.stringify(stats));
+    localStorage.setItem("up_stats_v2", JSON.stringify(stats));
   }, [stats]);
 
   // Actions

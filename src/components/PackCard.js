@@ -45,9 +45,9 @@ export default function PackCard({ pack, onSelect }) {
 
         {/* Title, Shop and Distance */}
         <div className="space-y-0.5 mb-3">
-          <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-neutral-400">
+          <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-muted">
             <span>{pack.shopName}</span>
-            <span className="text-neutral-300">•</span>
+            <span className="opacity-40">•</span>
             <span className="flex items-center text-primary">
               <MapPin className="mr-0.5 h-3.5 w-3.5 text-primary shrink-0" />
               {pack.distance}

@@ -4,20 +4,20 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
+  --background: #f3f6f4; /* Soft organic mint off-white for premium card-based layout contrast */
+  --foreground: #0f172a; /* Slate-900 for high-contrast primary text */
   
-  --primary: #16a34a; /* Green-600 */
-  --primary-hover: #15803d; /* Green-700 */
-  --primary-light: #f0fdf4; /* Green-50 */
+  --primary: #15803d; /* Green-700 for accessible text contrast (> 4.5:1) on white and light-mint */
+  --primary-hover: #166534; /* Green-800 */
+  --primary-light: #eaf6ed; /* Soft green-tinted light background */
   
-  --secondary: #ea580c; /* Orange-600 */
-  --secondary-hover: #c2410c; /* Orange-700 */
-  --secondary-light: #fff7ed; /* Orange-50 */
+  --secondary: #c2410c; /* Orange-700 for accessible text contrast (> 4.5:1) */
+  --secondary-hover: #9a3412; /* Orange-800 */
+  --secondary-light: #fdf2e9; /* Soft orange-tinted light background */
   
-  --muted: #6b7280;
-  --card-bg: #ffffff;
-  --border: #e5e7eb;
+  --muted: #475569; /* Slate-600 for body and description text (passes WCAG AA contrast) */
+  --card-bg: #ffffff; /* Pure white cards to float and stand out on the mint background */
+  --border: #d2dbd6; /* Soft green-tinted border for cleaner container separation */
 }
 
 @theme inline {

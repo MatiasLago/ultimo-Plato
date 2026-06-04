@@ -193,7 +193,7 @@ export default function ConsumerHome({ onSelectPack, viewMode = "available" }) {
                       <h3 className="font-extrabold text-lg group-hover:text-primary transition-colors">
                         {res.packTitle}
                       </h3>
-                      <p className="text-sm font-bold text-neutral-500 mt-0.5">
+                      <p className="text-sm font-bold text-muted mt-0.5">
                         {res.shopName}
                       </p>
                     </div>

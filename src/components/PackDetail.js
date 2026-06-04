@@ -87,7 +87,7 @@ export default function PackDetail({ pack, onClose, onReserveSuccess }) {
             <h2 className="text-2xl sm:text-3xl font-black text-foreground">
               {pack.title}
             </h2>
-            <p className="text-sm font-bold text-neutral-500">
+            <p className="text-sm font-bold text-muted">
               Comercio: {pack.shopName}
             </p>
             <div className="flex flex-wrap gap-2 mt-3">

@@ -65,7 +65,7 @@ export default function LandingPage() {
 
 
       {/* How It Works Section */}
-      <section className="py-20 lg:py-28 bg-neutral-50/50 dark:bg-neutral-950/20">
+      <section className="py-20 lg:py-28 bg-transparent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -125,7 +125,7 @@ export default function LandingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 lg:py-28 bg-white dark:bg-neutral-900">
+      <section className="py-20 lg:py-28 bg-transparent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
